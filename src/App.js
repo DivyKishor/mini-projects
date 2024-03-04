@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import Accordion from './components/Accordion';
+import StarRating from './components/StarRating';
+import LoadMoreData from './components/LoadMoreData';
+import QrCode from './components/QrCode';
+// import { useEffect } from 'react';
+
 
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>Accordion</div>
+      <Accordion />
+      <br/>
+      <br/>
+      <hr/>
+      <div>Star Rating</div>
+      <StarRating noOfStars={10}/>
+      <hr/>
+      <QrCode value="Divy" />
+      <p>&nbsp;</p>
+      <hr/>
+      {/* load more product */}
+      <LoadMoreData />
+      <hr/>
+      
     </div>
   );
 }
