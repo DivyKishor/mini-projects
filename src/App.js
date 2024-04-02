@@ -9,13 +9,16 @@ import Header from './components/Header';
 import Login from './components/Login';
 import { Routes , Route} from 'react-router-dom';
 import NotFound from './components/NotFound';
+import { MyContextProvider } from './components/MyContext';
+import Sketch from './components/Sketch';
+import Modals from './components/Modals';
 
 
 
 function App() {
 
   return (
-    <>
+    <MyContextProvider>
     <Header />
     <Routes>
       <Route path="/" element={<Login/>} />
@@ -24,9 +27,10 @@ function App() {
       <Route path="/stars" element={<StarRating noOfStars={10}/>} />
       <Route path="/qr" element={<QrCode value="Brave"/>} />
       <Route path="/loadmore" element={<LoadMoreData/>} />
+      <Route path="/modal" element={<Modals/>} />
       <Route path="*" element={<NotFound/>} />
     </Routes>
-    </>
+    </MyContextProvider>
   )
   
   // return (

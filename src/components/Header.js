@@ -9,7 +9,8 @@ const Header = () => {
     </div>
     <div className="">
         <ul className="flex items-center ">
-            <li className="m-4 p-4"><Link to="/">Home</Link></li>
+            <li className="m-4 p-4"><Link to="/">Home</Link></li>=
+            <li className="m-4 p-4"><Link to="/modal">Modal</Link></li>
             <li className="m-4 p-4"><Link to="/accordion">Accordion</Link></li>
             <li className="m-4 p-4"><Link to="/loadmore">Load More Item</Link></li>
             <li className="m-4 p-4"><Link to="/qr">QR Code</Link></li>

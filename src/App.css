@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.close-box{
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  align-self: flex-end;
+  border-radius: 20px;
+  box-shadow: 0 0 4px grey;
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

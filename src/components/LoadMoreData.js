@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Btn from "./Btn";
 
 const LoadMoreData = () => {
   const [loading, setLoading] = useState(false);
@@ -26,6 +27,7 @@ const LoadMoreData = () => {
         }`
       );
       const result = await response.json();
+      //const result = await JSON.parse(response.text());
       console.log(result);
       // debugger;
 
@@ -63,12 +65,11 @@ const LoadMoreData = () => {
         })}
       </div>
       <div>
-        <button className="focus:ring-blue-600 focus:ring-4 rounded border border-blue-500 p-2 m-2 shadow-lg text-white bg-blue-500 ring-1 hover:bg-blue-600 "
-          disable={disableButton.toString()}
+        <Btn disable={disableButton.toString()}
           onClick={() => setCount(count + 1)}
         >
           Load more
-        </button>
+        </Btn>
       </div>
     </div>
   );
