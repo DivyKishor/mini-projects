@@ -10,7 +10,6 @@ import Login from './components/Login';
 import { Routes , Route} from 'react-router-dom';
 import NotFound from './components/NotFound';
 import { MyContextProvider } from './components/MyContext';
-import Sketch from './components/Sketch';
 import Modals from './components/Modals';
 
 
