@@ -11,6 +11,7 @@ import { Routes , Route} from 'react-router-dom';
 import NotFound from './components/NotFound';
 import { MyContextProvider } from './components/MyContext';
 import Modals from './components/Modals';
+import ToDoList from './components/ToDoList';
 
 
 
@@ -21,6 +22,7 @@ function App() {
     <Header />
     <Routes>
       <Route path="/" element={<Login/>} />
+      <Route path="/todo" element={<ToDoList/>} />
       <Route path="/counter" element={<IncrementCounter/>} />
       <Route path="/accordion" element={<Accordion/>} />
       <Route path="/stars" element={<StarRating noOfStars={10}/>} />
