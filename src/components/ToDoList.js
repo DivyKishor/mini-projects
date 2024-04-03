@@ -9,6 +9,7 @@ import { FaCheck } from "react-icons/fa";
 const ToDoList = () => {
     const [isCompleteScreen, setIsCompleteScreen] = useState(false);
     const [allTodos, setAllTodos] = useState([]);
+    const [completedTodos, setCompletedTodos] = useState([]);
     const [newTitle, setNewTitle] = useState("");
     const [newDescription, setNewDescription] = useState("");
 
@@ -16,7 +17,6 @@ const ToDoList = () => {
         let newTodoItem = {
             title: newTitle,
             description: newDescription,
-            isComplete: false
         }
 
         setAllTodos([...allTodos, newTodoItem]);
@@ -32,11 +32,33 @@ const ToDoList = () => {
         localStorage.setItem('todolist', JSON.stringify(newTodos));
     }
 
+    const handleDeleteCompleted = (index)=>{
+        let newCompletedTodos = [...completedTodos];
+        newCompletedTodos.splice(index, 1);
+        setCompletedTodos(newCompletedTodos);
+        localStorage.setItem('completedTodos', JSON.stringify(newCompletedTodos));
+    }
+
     const handleCompleteTodo = (index)=>{
-        let newTodos = [...allTodos];
-        newTodos[index].isComplete = true;
-        setAllTodos(newTodos);
-        localStorage.setItem('todolist', JSON.stringify(newTodos));
+        let now = new Date();
+        let date = now.getDate();
+        let mm = now.getMonth() + 1;
+        let yyyy = now.getFullYear();
+        let hour = now.getHours();
+        let min = now.getMinutes();
+        let sec = now.getSeconds();
+
+        let completedOn = date + '-' + mm + '-' + yyyy + ' at ' + hour + ':' + min + ':' + sec;
+
+        let filteredItem = {
+            ...allTodos[index],
+            completedOn
+        }
+
+        let updatedCompletedTodos = [...completedTodos, filteredItem];
+        setCompletedTodos(updatedCompletedTodos);
+        localStorage.setItem('completedTodos', JSON.stringify(updatedCompletedTodos));
+        handleDeleteTodo(index); //removing this task from todos list
     }
 
     useEffect(()=>{
@@ -44,6 +66,12 @@ const ToDoList = () => {
             let savedTodos = JSON.parse(localStorage.getItem('todolist'));
             if(savedTodos){
                 setAllTodos(savedTodos);
+            }
+        }
+        if(localStorage.getItem('completedTodos')){
+            let savedCompletedTodos = JSON.parse(localStorage.getItem('completedTodos'));
+            if(savedCompletedTodos){
+                setCompletedTodos(savedCompletedTodos);
             }
         }
     },[]);
@@ -71,7 +99,7 @@ const ToDoList = () => {
                 </div>
                 {isCompleteScreen === false &&
                 <div className="todo-list">
-                    {allTodos.filter((item)=>item.isComplete === false).map((item,index) => (
+                    {allTodos.map((item,index) => (
                         <div className="todo-list-item" key={index}>
                             <div className="todo-list-item-content">
                                 <h3>{item.title}</h3>
@@ -89,14 +117,15 @@ const ToDoList = () => {
                 }
                 {isCompleteScreen &&
                 <div className="todo-list">
-                    {allTodos.filter((item)=>item.isComplete === true).map((item,index) => (
+                    {completedTodos.map((item,index) => (
                         <div className="todo-list-item" key={index}>
                             <div className="todo-list-item-content">
                                 <h3>{item.title}</h3>
                                 <div className="todo-list-item-description">{item.description}</div>
+                                <p><small>{item.completedOn}</small></p>
                             </div>
                             <div className="todo-list-item-control">
-                                <MdDeleteOutline className="icon-delete" onClick={()=>handleDeleteTodo(index)}/>
+                                <MdDeleteOutline className="icon-delete" onClick={()=>handleDeleteCompleted(index)}/>
                             </div>
                         </div>
                     )
