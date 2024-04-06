@@ -6,14 +6,26 @@ import { FaCheck } from "react-icons/fa";
 
 
 
+/**
+ * Function to manage a To Do list including adding, deleting, completing todos.
+ * 
+ * @return {JSX.Element} The JSX element representing the To Do list.
+ */
 const ToDoList = () => {
     const [isCompleteScreen, setIsCompleteScreen] = useState(false);
     const [allTodos, setAllTodos] = useState([]);
     const [completedTodos, setCompletedTodos] = useState([]);
     const [newTitle, setNewTitle] = useState("");
     const [newDescription, setNewDescription] = useState("");
+    const [error, setError] = useState({});
 
     const handleAddTodo =()=>{
+
+        if (newTitle === ""){ 
+            setError({title: "Title cannot be empty"});
+            return;
+        }
+        setError({});
         let newTodoItem = {
             title: newTitle,
             description: newDescription,
@@ -84,6 +96,7 @@ const ToDoList = () => {
                     <div className="todo-input-item">
                         <label>Title</label>
                         <input type="text" value={newTitle} onChange={(e)=>setNewTitle(e.target.value)}  placeholder="Whats the task title"/>
+                        {error.title && <div>{error.title}</div>}
                     </div>
                     <div className="todo-input-item">
                         <label>Description</label>
@@ -94,8 +107,8 @@ const ToDoList = () => {
                     </div>
                 </div>
                 <div className="btn-area">
-                    <button type="button" className={`secondaryBtn ${isCompleteScreen=== false ? 'active' : ''}`} onClick={()=>setIsCompleteScreen(false)}>Todo</button>
-                    <button type="button" className={`secondaryBtn ${isCompleteScreen ? 'active' : ''}`} onClick={()=>setIsCompleteScreen(true)}>Completed</button>
+                    <button type="button" className={`secondaryBtn ${isCompleteScreen=== false ? 'activeTab' : ''}`} onClick={()=>setIsCompleteScreen(false)}>Todo</button>
+                    <button type="button" className={`secondaryBtn ${isCompleteScreen ? 'activeTab' : ''}`} onClick={()=>setIsCompleteScreen(true)}>Completed</button>
                 </div>
                 {isCompleteScreen === false &&
                 <div className="todo-list">
@@ -122,7 +135,7 @@ const ToDoList = () => {
                             <div className="todo-list-item-content">
                                 <h3>{item.title}</h3>
                                 <div className="todo-list-item-description">{item.description}</div>
-                                <p><small>{item.completedOn}</small></p>
+                                <p><small>completed on {item.completedOn}</small></p>
                             </div>
                             <div className="todo-list-item-control">
                                 <MdDeleteOutline className="icon-delete" onClick={()=>handleDeleteCompleted(index)}/>

@@ -12,7 +12,8 @@ import NotFound from './components/NotFound';
 import { MyContextProvider } from './components/MyContext';
 import Modals from './components/Modals';
 import ToDoList from './components/ToDoList';
-
+import EasyAnnotation from './components/EasyAnnotation';
+import StarRating2 from './components/StarRating2';
 
 
 function App() {
@@ -22,10 +23,12 @@ function App() {
     <Header />
     <Routes>
       <Route path="/" element={<Login/>} />
+      <Route path="/annotation" element={<EasyAnnotation/>} />
       <Route path="/todo" element={<ToDoList/>} />
       <Route path="/counter" element={<IncrementCounter/>} />
       <Route path="/accordion" element={<Accordion/>} />
-      <Route path="/stars" element={<StarRating noOfStars={10}/>} />
+      <Route path="/stars" element={<StarRating/>} />
+      <Route path="/halfstars" element={<StarRating2 initialRating={3.5} totalStars={5} />} />
       <Route path="/qr" element={<QrCode value="Brave"/>} />
       <Route path="/loadmore" element={<LoadMoreData/>} />
       <Route path="/modal" element={<Modals/>} />

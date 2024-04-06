@@ -73,8 +73,9 @@ h1{
 .todo-form{
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: flex-start;
 }
+
 .todo-input{
   display: flex;
   align-items: center;
@@ -119,7 +120,7 @@ h1{
   cursor: pointer;
 }
 
-.active{
+.activeTab{
   background-color: green;
 }
 
