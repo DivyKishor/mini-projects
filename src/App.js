@@ -14,6 +14,8 @@ import Modals from './components/Modals';
 import ToDoList from './components/ToDoList';
 import EasyAnnotation from './components/EasyAnnotation';
 import StarRating2 from './components/StarRating2';
+import Test from './components/Test';
+import PaginationExample from './components/PaginationExample';
 
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
       <Route path="/qr" element={<QrCode value="Brave"/>} />
       <Route path="/loadmore" element={<LoadMoreData/>} />
       <Route path="/modal" element={<Modals/>} />
+      <Route path="/test" element={<Test/>} />
+      <Route path="/pagination" element={<PaginationExample/>} />
       <Route path="*" element={<NotFound/>} />
     </Routes>
     </MyContextProvider>
