@@ -31,6 +31,7 @@ const LoadMoreData = () => {
       console.log(result);
       // debugger;
 
+      
       if (result && result.products.length) {
         // setProducts([...result.products]);
         setProducts((prevData) => [...prevData, ...result.products]);

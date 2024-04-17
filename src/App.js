@@ -16,6 +16,8 @@ import EasyAnnotation from './components/EasyAnnotation';
 import StarRating2 from './components/StarRating2';
 import Test from './components/Test';
 import PaginationExample from './components/PaginationExample';
+import AddTodo from './components/AddTodo';
+import AutoIncrementCounter from './components/AutoIncrementCounter';
 
 
 function App() {
@@ -27,7 +29,9 @@ function App() {
       <Route path="/" element={<Login/>} />
       <Route path="/annotation" element={<EasyAnnotation/>} />
       <Route path="/todo" element={<ToDoList/>} />
+      <Route path="/reduxtodo" element={<AddTodo/>} />
       <Route path="/counter" element={<IncrementCounter/>} />
+      <Route path="/countertick" element={<AutoIncrementCounter/>} />
       <Route path="/accordion" element={<Accordion/>} />
       <Route path="/stars" element={<StarRating/>} />
       <Route path="/halfstars" element={<StarRating2 initialRating={3.5} totalStars={5} />} />
@@ -35,6 +39,7 @@ function App() {
       <Route path="/loadmore" element={<LoadMoreData/>} />
       <Route path="/modal" element={<Modals/>} />
       <Route path="/test" element={<Test/>} />
+      {/* <Route path="/wordcloud" element={<WordCloud/>} /> */}
       <Route path="/pagination" element={<PaginationExample/>} />
       <Route path="*" element={<NotFound/>} />
     </Routes>
