@@ -8,7 +8,7 @@ const LoadMoreData = () => {
   const [disableButton, setDisableButton] = useState(false);
 
   useEffect(() => {
-    console.log("cdm")
+    // console.log("cdm")
     fetchProducts();
   }, [count]);
 

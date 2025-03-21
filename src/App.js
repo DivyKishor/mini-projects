@@ -18,6 +18,8 @@ import Test from './components/Test';
 import PaginationExample from './components/PaginationExample';
 import AddTodo from './components/AddTodo';
 import AutoIncrementCounter from './components/AutoIncrementCounter';
+import Aggrid from './components/Aggrid';
+import FakeStore from './components/FakeStore';
 
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
       <Route path="/" element={<Login/>} />
       <Route path="/annotation" element={<EasyAnnotation/>} />
       <Route path="/todo" element={<ToDoList/>} />
+      <Route path="/FakeStore" element={<FakeStore/>} />
       <Route path="/reduxtodo" element={<AddTodo/>} />
       <Route path="/counter" element={<IncrementCounter/>} />
       <Route path="/countertick" element={<AutoIncrementCounter/>} />
@@ -39,7 +42,7 @@ function App() {
       <Route path="/loadmore" element={<LoadMoreData/>} />
       <Route path="/modal" element={<Modals/>} />
       <Route path="/test" element={<Test/>} />
-      {/* <Route path="/wordcloud" element={<WordCloud/>} /> */}
+      <Route path="/grid" element={<Aggrid/>} />
       <Route path="/pagination" element={<PaginationExample/>} />
       <Route path="*" element={<NotFound/>} />
     </Routes>

@@ -21,7 +21,7 @@ const Header = () => {
             <li className="m-4 p-4"><Link to="/">Home</Link></li>
             <li className='m-4 p-4'><MenuItem categoryLabel={"static Components"} categoryItems={menuListStatic} /></li>
             {/* <li className="m-4 p-4"><Link to="/wordcloud">Word Cloud</Link></li> */}
-            {/* <li className="m-4 p-4"><Link to="/modal">Modal</Link></li> */}
+            <li className="m-4 p-4"><Link to="/FakeStore">Fake store</Link></li>
             <li className="m-4 p-4"><Link to="/todo">To do List</Link></li>
             <li className="m-4 p-4"><Link to="/reduxtodo">Redux Todo</Link></li>
             {/* <li className="m-4 p-4"><Link to="/accordion">Accordion</Link></li> */}
@@ -29,6 +29,7 @@ const Header = () => {
             <li className="m-4 p-4"><Link to="/qr">QR Code</Link></li>
             {/* <li className="m-4 p-4"><Link to="/stars">Star Rating</Link></li> */}
             {/* <li className="m-4 p-4"><Link to="/halfstars">Half Stars Rating</Link></li> */}
+            <li className="m-4 p-4"><Link to="/grid">Aggrid</Link></li>
             <li className="m-4 p-4"><Link to="/counter">Counter</Link></li>
             <li className="m-4 p-4"><Link to="/countertick">AutoIncrementCounter</Link></li>
             <li className="m-4 p-4"><Link to="/test">Test (draw cards)</Link></li>
